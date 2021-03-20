@@ -32,7 +32,7 @@ permalink: /:title/
 google_analytics: # leave it blank if not wish
 fb_appid:
 
-lang: es-IN # default lang
+lang: en-IN # default lang
 timezone: Asia/Calcutta # set your timezone
 image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
 mode: dark # default theme "dark" | "light"
