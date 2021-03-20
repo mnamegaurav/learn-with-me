@@ -1,0 +1,15 @@
+---
+layout: default
+home: true
+---
+
+<h2 class="posts-item-note" aria-label="Recent Posts">Recent Learnings</h2>
+{%- for technology in site.technologies -%}
+<article class="post-item">
+  <h3 class="post-item-title">
+    <a href="{{ technology.url }}">{{ technology.title | escape }}</a>
+  </h3>
+  <br/>
+    <small class="post-item-date">Last Updated - {{ technology.date | date: "%b %d, %Y" }}</small>
+</article>
+{%- endfor -%}

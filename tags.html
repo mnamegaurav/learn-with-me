@@ -1,0 +1,27 @@
+---
+title: Tags
+permalink: /tags/
+layout: page
+excerpt: Sorted article by tags.
+---
+
+<div class="archive-tags">
+  <a class="tag-item" href="/">all</a>
+  {%- for technology in site.technologies -%} 
+    {% capture name %}{{ technology.title | first }}{% endcapture %}
+    <a class="tag-item" href="{{ technology.url }}">{{ technology.title }}</a> 
+  {%- endfor -%}
+</div>
+
+{%- for tag in site.tags -%}
+  {%- capture name -%}{{ tag | first }}{%- endcapture -%}
+  <h2 id="{{ name }}">{{ name | upcase }}</h2>
+  {%- for post in site.tags[name] -%}
+    <article class="post-item" id="results-container">
+      <h3 class="post-item-title">
+        <a href="{{ post.url }}">{{ post.title | escape }}</a>
+      </h3> 
+      <span class="post-item-date">{{ post.date | date: "%b %d, %Y" }}</span>
+    </article>
+  {%- endfor -%}
+{%- endfor -%}

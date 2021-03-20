@@ -1,0 +1,121 @@
+# Welcome to Jekyll!
+#
+# This config file is meant for settings that affect your whole blog, values
+# which you are expected to set up once and rarely edit after that. If you find
+# yourself editing this file very often, consider using Jekyll's data files
+# feature for the data you need to update frequently.
+#
+# For technical reasons, this file is *NOT* reloaded automatically when you use
+# 'bundle exec jekyll serve'. If you change this file, please restart the server process.
+#
+# If you need help with YAML syntax, here are some quick references for you: 
+# https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
+# https://learnxinyminutes.com/docs/yaml/
+#
+# Site settings
+# These are used to personalize your new site. If you look in the HTML files,
+# you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
+# You can create any custom variable you would like, and they will be accessible
+# in the templates via {{ site.myvariable }}.
+
+title: Learn with Me
+email: gaurav91297@gmail.com
+description: >- # this means to ignore newlines until "baseurl:"
+  I am here to share my knowledge with you on various programing languages, framework and core software developement.
+baseurl: "/learn-with-me" # the subpath of your site, e.g. /blog
+url: "https://hamhaingaurav.github.io" # the base hostname & protocol for your site, e.g. http://example.com
+twitter_username: hamhaingaurav
+instagram_username: devjunction.in
+github_username:  hamhaingaurav
+permalink: /:title/
+
+google_analytics: # leave it blank if not wish
+fb_appid:
+
+lang: es-IN # default lang
+timezone: Asia/Calcutta # set your timezone
+image: assets/img/ogp.png # This image used for Open Graph more info https://ogp.me/
+mode: dark # default theme "dark" | "light"
+
+# Profile settings
+author:
+  name: Gaurav Kumar Sharma # author name
+  bio: >- # tell to the world
+    Learn with me/
+  username: hamhaingaurav # general username
+  github: hamhaingaurav # github username
+  github_url: https://github.com/hamhaingaurav # github url
+  instagram_username: devjunction.in
+  twitter: hamhaingaurav # twitter username
+  linkedin: https://www.linkedin.com/in/hamhaingaurav
+  discord: https://discord.gg/gqmdBg9qHR
+  email: gaurav91297@gmail.com # email adress
+  avatar: /assets/img/avatar.jpg # change with your own avatar
+
+# Collection setting
+collections:
+  posts:
+    output: true
+  technologies:
+    output: true
+
+# Markdown settings
+markdown: kramdown
+highlighter: rouge
+kramdown:
+  syntax_highlighter: rouge
+
+# Default front matter
+defaults:
+  - scope:
+      path: ""
+    values:
+      layout: post
+      comments: false
+
+# Jekyll Compose default front matter
+jekyll_compose:
+  post_default_front_matter:
+    modified:
+    tag: 
+    technology: 
+    description:
+  draft_default_front_matter:
+    modified:
+    tag: 
+    technology: 
+    description:
+
+# Build settings
+# theme: minima
+plugins:
+  - jekyll-feed
+
+sass:
+  style: compressed
+
+# Exclude from processing.
+# The following items will not be processed, by default.
+# Any item listed under the `exclude:` key here will be automatically added to
+# the internal "default list".
+#
+# Excluded items can be processed by explicitly listing the directories or
+# their entries' file path in the `include:` list.
+#
+# exclude:
+#   - .sass-cache/
+#   - .jekyll-cache/
+#   - gemfiles/
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules/
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-postfiles
