@@ -114,6 +114,9 @@ sass:
 #   - vendor/gems/
 #   - vendor/ruby/
 
+include:
+  - CNAME
+
 # Plugins
 plugins:
   - jekyll-feed
