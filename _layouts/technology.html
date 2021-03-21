@@ -30,6 +30,7 @@ layout: compress
   <div class="wrapper">
     <main aria-label="Content">
       <h1 class="technology-title">{{ page.title }}</h1>
+      {{ content }}
       {% assign filtered_posts = site.posts | where: 'tag', page.tag %}
       {% assign filtered_posts_size = filtered_posts | size %}
       {% if filtered_posts_size != 0 %}
@@ -40,11 +41,11 @@ layout: compress
               <a href="{{ post.url }}">{{ post.title | escape }}</a>
             </h3>
             <br/>
-              <small class="post-item-date">Last Updated - {{ post.date | date: "%b %d, %Y" }}</small>
+              <small class="post-item-date">updated {{ post.date | date: "%b %d, %Y" }}</small>
           </article>
           {%- endfor -%}
       {% else %}
-      <h1 style="text-align: center;color: #ff5277">Posting Soon...</h1>
+      <h1 class="posts-item-title" style="text-align: center;color: #ff5277">Starting this monday 22nd Mar 2021...</h1>
       {% endif %}
     </main>
     {% include footer.html %}

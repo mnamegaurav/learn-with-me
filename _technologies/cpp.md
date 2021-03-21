@@ -4,4 +4,3 @@ tag: cpp
 category: Programming Language
 layout: technology
 ---
-

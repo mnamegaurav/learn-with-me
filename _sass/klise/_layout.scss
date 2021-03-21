@@ -238,10 +238,7 @@
     color: $black;
     font-weight: 700;
     padding-right: 10px;
-
-    @include media-query($on-mobile) {
-      font-size: 16px;
-    }
+    font-size: 10px;
   }
 
   .post-item-title {
@@ -382,7 +379,7 @@
 
 // Technology page
 .technology-title{
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
   margin-top: 3rem;
   margin-bottom: 4rem;

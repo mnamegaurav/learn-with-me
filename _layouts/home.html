@@ -10,6 +10,6 @@ home: true
     <a href="{{ technology.url }}">{{ technology.title | escape }}</a>
   </h3>
   <br/>
-    <small class="post-item-date">Last Updated - {{ technology.date | date: "%b %d, %Y" }}</small>
+    <small class="post-item-date">updated {{ technology.date | date: "%b %d, %Y" }}</small>
 </article>
 {%- endfor -%}
