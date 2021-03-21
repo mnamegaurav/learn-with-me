@@ -30,7 +30,6 @@ layout: compress
   <div class="wrapper">
     <main aria-label="Content">
       <h1 class="technology-title">{{ page.title }}</h1>
-      {{ content }}
       {% assign filtered_posts = site.posts | where: 'tag', page.tag %}
       {% assign filtered_posts_size = filtered_posts | size %}
       {% if filtered_posts_size != 0 %}
