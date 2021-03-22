@@ -22,7 +22,7 @@ title: Learn with Me
 email: gaurav91297@gmail.com
 description: >- # this means to ignore newlines until "baseurl:"
   I am here to share my knowledge with you on various programing languages, framework and core software developement.
-baseurl: ''
+baseurl: ""
 url: "https://learnwithme.club" # the base hostname & protocol for your site, e.g. http://example.com
 twitter_username: hamhaingaurav
 instagram_username: devjunction.in
