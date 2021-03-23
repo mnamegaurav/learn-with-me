@@ -132,7 +132,7 @@ def book_create_api(request):
     response = JsonResponse(
                 book_dict, 
                 safe=False, 
-                status=200
+                status=201
             )
     return response
 ```
