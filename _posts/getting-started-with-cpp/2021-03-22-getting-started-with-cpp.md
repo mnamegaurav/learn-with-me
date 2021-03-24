@@ -7,7 +7,7 @@ description: I am new to C++, i learned it in my college 3 years back, and now i
 image: ""
 ---
 
-[30DaysOfCpp](javascript:void(0))
+[30DaysOfCpp](https://www.linkedin.com/feed/hashtag/?keywords=30daysofcpp)
 
 <article><kbd>C++</kbd> is one of the popular languages, I have learned it in my college 3 years back, and now i am going to learn it again like a beginner. I am a Python guy, it is going to be an exciting journey.</article>
 

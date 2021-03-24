@@ -7,7 +7,7 @@ description: In this article, we are going to setup our programming environment 
 image: ""
 ---
 
-[#30DaysOfCpp](javascript:void(0))
+[#30DaysOfCpp](https://www.linkedin.com/feed/hashtag/?keywords=30daysofcpp)
 
 
 ### The Introduction -
@@ -125,7 +125,7 @@ To wrap it up the whole process, take a look at this image.
 
 ### Conclusion -
 
-This article could be a bit overwhelming, but trust me, this is all worth it. When we will get more deep into `C++`, you are going to be thanking me. Hope you have got to learn something from me in this article, do not forget to share your `C++` journey using this hastag [#30DaysOfCpp](javascript:void(0)) on linkedin.
+This article could be a bit overwhelming, but trust me, this is all worth it. When we will get more deep into `C++`, you are going to be thanking me. Hope you have got to learn something from me in this article, do not forget to share your `C++` journey using this hastag [#30DaysOfCpp](https://www.linkedin.com/feed/hashtag/?keywords=30daysofcpp) on linkedin.
 
 
 ##### There is so much to learn in the upcoming articles, stick with me, you can follow me on [LinkedIn](https://www.linkedin.com/in/hamhaingaurav/) from [here](https://www.linkedin.com/in/hamhaingaurav/) for more updates.
