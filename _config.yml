@@ -92,6 +92,8 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-postfiles
+  - jekyll-loading-lazy
+
 
 sass:
   style: compressed
