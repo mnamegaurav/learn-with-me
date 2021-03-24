@@ -27,7 +27,7 @@ url: "https://learnwithme.club" # the base hostname & protocol for your site, e.
 twitter_username: hamhaingaurav
 instagram_username: devjunction.in
 github_username:  hamhaingaurav
-permalink: /:title/
+permalink: /article/:title/
 
 google_analytics: # leave it blank if not wish
 fb_appid:
@@ -90,6 +90,8 @@ jekyll_compose:
 # theme: minima
 plugins:
   - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-postfiles
 
 sass:
   style: compressed
@@ -116,9 +118,3 @@ sass:
 
 include:
   - CNAME
-
-# Plugins
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-postfiles

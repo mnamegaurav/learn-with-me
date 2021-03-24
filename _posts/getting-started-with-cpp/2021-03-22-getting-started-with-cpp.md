@@ -1,5 +1,5 @@
 ---
-title: A beginner's guide to get started with C++;
+title: 1 - A beginner's guide to get started with C++;
 date: 2021-03-22 03:00:00 +05:30
 modified: 2021-03-22 03:00:00 +05:30
 tag: cpp
@@ -7,7 +7,7 @@ description: I am new to C++, i learned it in my college 3 years back, and now i
 image: ""
 ---
 
-[30DaysOfC++](javascript:void(0))
+[30DaysOfCpp](javascript:void(0))
 
 <article><kbd>C++</kbd> is one of the popular languages, I have learned it in my college 3 years back, and now i am going to learn it again like a beginner. I am a Python guy, it is going to be an exciting journey.</article>
 
