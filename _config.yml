@@ -24,9 +24,9 @@ description: >- # this means to ignore newlines until "baseurl:"
   I am here to share my knowledge with you on various programing languages, framework and core software developement.
 baseurl: ""
 url: "https://learnwithme.club" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: hamhaingaurav
+twitter_username: mnamegaurav
 instagram_username: devjunction.in
-github_username:  hamhaingaurav
+github_username:  mnamegaurav
 permalink: /article/:title/
 
 google_analytics: # leave it blank if not wish
@@ -42,12 +42,12 @@ author:
   name: Gaurav Kumar Sharma # author name
   bio: >- # tell to the world
     Learn with me/
-  username: hamhaingaurav # general username
-  github: hamhaingaurav # github username
-  github_url: https://github.com/hamhaingaurav # github url
+  username: mnamegaurav # general username
+  github: mnamegaurav # github username
+  github_url: https://github.com/mnamegaurav # github url
   instagram_username: devjunction.in
-  twitter: hamhaingaurav # twitter username
-  linkedin: https://www.linkedin.com/in/hamhaingaurav
+  twitter: mnamegaurav # twitter username
+  linkedin: https://www.linkedin.com/in/mnamegaurav
   discord: https://discord.gg/gqmdBg9qHR
   email: gaurav91297@gmail.com # email adress
   avatar: /assets/img/avatar.jpg # change with your own avatar
