@@ -1,0 +1,385 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-IN"><generator uri="https://jekyllrb.com/" version="3.9.0">Jekyll</generator><link href="https://learnwithme.club/feed.xml" rel="self" type="application/atom+xml" /><link href="https://learnwithme.club/" rel="alternate" type="text/html" hreflang="en-IN" /><updated>2021-04-17T11:08:09+05:30</updated><id>https://learnwithme.club/feed.xml</id><title type="html">Learn with Me</title><subtitle>I am here to share my knowledge with you on various programing languages, framework and core software developement.</subtitle><author><name>Gaurav Kumar Sharma</name><email>gaurav91297@gmail.com</email></author><entry><title type="html">2 - How does C++ compilation works ?</title><link href="https://learnwithme.club/article/cpp-compilation-process/" rel="alternate" type="text/html" title="2 - How does C++ compilation works ?" /><published>2021-03-24T03:00:00+05:30</published><updated>2021-03-24T03:00:00+05:30</updated><id>https://learnwithme.club/article/cpp-compilation-process</id><content type="html" xml:base="https://learnwithme.club/article/cpp-compilation-process/">&lt;p&gt;&lt;a href=&quot;https://www.linkedin.com/feed/hashtag/?keywords=30daysofcpp&quot;&gt;#30DaysOfCpp&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&quot;the-introduction--&quot;&gt;The Introduction -&lt;/h3&gt;
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; is a beauty, and its compilation process is what makes it more powerful than other languages. Before we jump into the core programming fundamentals of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;, like &lt;strong&gt;&lt;em&gt;variables&lt;/em&gt;&lt;/strong&gt;, &lt;strong&gt;&lt;em&gt;loops&lt;/em&gt;&lt;/strong&gt; etc, we will first try to understand, how the compilation happens in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; at an &lt;strong&gt;&lt;em&gt;abstract&lt;/em&gt;&lt;/strong&gt; level.&lt;/p&gt;
+
+&lt;h3 id=&quot;setting-up-the-environment-for-c-in-vscode--&quot;&gt;Setting up the environment for C++ in VSCode -&lt;/h3&gt;
+&lt;p&gt;We are simply going to use &lt;strong&gt;VSCode&lt;/strong&gt; with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g++&lt;/code&gt;(for Unix/Linux) or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;MinGW&lt;/code&gt;(on Windows) to setup the environment.&lt;/p&gt;
+
+&lt;p&gt;Follow these steps and you will be ready to run your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; program in your local system.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;Download &lt;a href=&quot;https://code.visualstudio.com/download&quot;&gt;VSCode&lt;/a&gt; from &lt;a href=&quot;https://code.visualstudio.com/download&quot;&gt;here&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;If you are on &lt;strong&gt;Unix/Linux&lt;/strong&gt;, Your system already came with &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;g++&lt;/code&gt; compiler. You can check it by opening your terminal and running this command.
+    &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; &lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;g++ &lt;span class=&quot;nt&quot;&gt;--version&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;    &lt;/div&gt;
+  &lt;/li&gt;
+  &lt;li&gt;If you are on &lt;strong&gt;Windows&lt;/strong&gt;, You can follow this guide to setup the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; environment, from official &lt;strong&gt;VSCode&lt;/strong&gt; documentation.
+ &lt;a href=&quot;https://code.visualstudio.com/docs/languages/cpp&quot;&gt;https://code.visualstudio.com/docs/languages/cpp&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;Now you are ready to go ahead into the &lt;strong&gt;&lt;em&gt;compilation&lt;/em&gt;&lt;/strong&gt; process of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3 id=&quot;c-compilation--&quot;&gt;C++ Compilation -&lt;/h3&gt;
+
+&lt;p&gt;When we say &lt;strong&gt;&lt;em&gt;compilation&lt;/em&gt;&lt;/strong&gt;, we generally refers to the whole process of generating an executable file from a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.cpp&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;But in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; compilation process consists of three major steps:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Preprocessing&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Compilation(Translation)&lt;/strong&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Linking&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;http://www.cplusplus.com/articles/2v07M4Gy/Selection_101.png&quot; alt=&quot;C++ Compilation Overview&quot; /&gt;
+&lt;figcaption&gt;C++ Compilation Overview.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;We will take a look at all of them, but before that, let’s relook at the program we saw in the first &lt;a href=&quot;https://learnwithme.club/getting-started-with-cpp/&quot;&gt;article&lt;/a&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Preprocessor&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// User defined part&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Open your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VSCode&lt;/code&gt; editor and create a new file with this name &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main.cpp&lt;/code&gt;, and paste the above program.&lt;/p&gt;
+
+&lt;p&gt;Now, tight your seat belts, because we are going on a ride of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; compilation.&lt;/p&gt;
+
+&lt;h5 id=&quot;the-preprocessor&quot;&gt;The Preprocessor:&lt;/h5&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Pre-processor&lt;/em&gt;&lt;/strong&gt;, is the first thing that happens in the &lt;strong&gt;&lt;em&gt;compilation&lt;/em&gt;&lt;/strong&gt; process.&lt;/p&gt;
+
+&lt;p&gt;If you take a look at above &lt;strong&gt;program&lt;/strong&gt;, first line of that program &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#include ...&lt;/code&gt; is called a &lt;strong&gt;preprocessor directive&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;In this program, we are using this &lt;strong&gt;&lt;em&gt;preprocessor&lt;/em&gt;&lt;/strong&gt; to include the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std&lt;/code&gt; (standard) input output functions from a well known &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; library named &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iostream&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;Preprocessor&lt;/em&gt;&lt;/strong&gt; job is very simple, it just &lt;em&gt;copies&lt;/em&gt; whatever is inside the file &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iostream&lt;/code&gt;, and &lt;em&gt;paste&lt;/em&gt; it into our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.cpp&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;After doing the easy job of &lt;strong&gt;&lt;em&gt;preprocessing&lt;/em&gt;&lt;/strong&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; compiler generates a &lt;strong&gt;temporary&lt;/strong&gt; file, which consists of all the code from &lt;em&gt;included&lt;/em&gt; libraries, and this &lt;strong&gt;temporary&lt;/strong&gt; file will be passed to a translator for further &lt;em&gt;compilation&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;Sounds easy, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#include ...&lt;/code&gt; is just one directive, there is also &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#define ...&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#if ...&lt;/code&gt; etc for different &lt;em&gt;usecases&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h5 id=&quot;the-compiler-translator&quot;&gt;The Compiler (Translator):&lt;/h5&gt;
+
+&lt;p&gt;After the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; &lt;strong&gt;compiler&lt;/strong&gt; has included all the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;header&lt;/code&gt; files and expanded out all the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;#include&lt;/code&gt; statements, Now this &lt;strong&gt;&lt;em&gt;translator&lt;/em&gt;&lt;/strong&gt; comes into the play.&lt;/p&gt;
+
+&lt;p&gt;It will take all the generated temporary files(in this case only one) one at a time, and create an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;object&lt;/code&gt; file for each &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;temporary&lt;/code&gt; file.&lt;/p&gt;
+
+&lt;p&gt;You can generate an &lt;em&gt;object&lt;/em&gt; file by yourself, using this command in your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;VSCode&lt;/code&gt; terminal.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;g++ &lt;span class=&quot;nt&quot;&gt;-c&lt;/span&gt; main.cpp
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Object&lt;/code&gt; files are just the binary version of your program with the extension &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.o&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.obj&lt;/code&gt;, though you can not directly execute it, there is one process left which will create an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;executable&lt;/code&gt; file out of your object files.&lt;/p&gt;
+
+&lt;h5 id=&quot;the-linker&quot;&gt;The Linker:&lt;/h5&gt;
+
+&lt;p&gt;As its name is suggesting you, The job of the &lt;strong&gt;&lt;em&gt;linker&lt;/em&gt;&lt;/strong&gt; is to link together a bunch of object files (&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;.o&lt;/code&gt; files) into a binary &lt;strong&gt;executable&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;The &lt;strong&gt;&lt;em&gt;linker&lt;/em&gt;&lt;/strong&gt; takes the &lt;em&gt;object&lt;/em&gt; files created by the &lt;strong&gt;&lt;em&gt;compiler&lt;/em&gt;&lt;/strong&gt; (or &lt;strong&gt;translator&lt;/strong&gt;) and links them together, along with library code and a runtime files, to form a complete, executable program that is stored in a &lt;strong&gt;single&lt;/strong&gt; file.&lt;/p&gt;
+
+&lt;p&gt;To run the &lt;strong&gt;linker&lt;/strong&gt;, or generate one single executable file out of the object files, you have to run this command.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;g++ main.o &lt;span class=&quot;nt&quot;&gt;-o&lt;/span&gt; main
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now the &lt;em&gt;compilation&lt;/em&gt; process is done, If you are on &lt;em&gt;windows&lt;/em&gt;, you can run this file by directly opening it.&lt;/p&gt;
+
+&lt;p&gt;On &lt;em&gt;Linux/MacOS&lt;/em&gt; you can run this file from command line, using this command.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;./main
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Now we are done with the whole &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; compilation process.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Note: Generally when you use an IDE for your C++ project, you don’t have to run translator, or linker by yourself, everything will be done for you by the IDE.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;To wrap it up the whole process, take a look at this image.&lt;/p&gt;
+
+&lt;figure&gt;
+&lt;img src=&quot;https://icarus.cs.weber.edu/~dab/cs1410/textbook/1.Basics/images/compiler_system.png&quot; alt=&quot;C++ Compilation Process&quot; /&gt;
+&lt;figcaption&gt;C++ Compilation Process.&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;h3 id=&quot;conclusion--&quot;&gt;Conclusion -&lt;/h3&gt;
+
+&lt;p&gt;This article could be a bit overwhelming, but trust me, this is all worth it. When we will get more deep into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;, you are going to be thanking me. Hope you have got to learn something from me in this article, do not forget to share your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; journey using this hastag &lt;a href=&quot;https://www.linkedin.com/feed/hashtag/?keywords=30daysofcpp&quot;&gt;#30DaysOfCpp&lt;/a&gt; on linkedin.&lt;/p&gt;
+
+&lt;h5 id=&quot;there-is-so-much-to-learn-in-the-upcoming-articles-stick-with-me-you-can-follow-me-on-linkedin-from-here-for-more-updates&quot;&gt;There is so much to learn in the upcoming articles, stick with me, you can follow me on &lt;a href=&quot;https://www.linkedin.com/in/hamhaingaurav/&quot;&gt;LinkedIn&lt;/a&gt; from &lt;a href=&quot;https://www.linkedin.com/in/hamhaingaurav/&quot;&gt;here&lt;/a&gt; for more updates.&lt;/h5&gt;
+
+&lt;h5 id=&quot;until-then-you-can-watch-some-intersting-c-videos-and-read-a-great-article-from-the-links-given-below-enjoy-c&quot;&gt;Until then you can watch some intersting C++ videos and read a great article from the links given below, enjoy C++.&lt;/h5&gt;
+
+&lt;h3 id=&quot;resources&quot;&gt;Resources&lt;/h3&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://courses.cms.caltech.edu/cs11/material/cpp/mike/misc/compiling_c++.html&quot;&gt;http://courses.cms.caltech.edu/cs11/material/cpp/mike/misc/compiling_c++.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://icarus.cs.weber.edu/~dab/cs1410/textbook/1.Basics/compiler_op.html&quot;&gt;https://icarus.cs.weber.edu/~dab/cs1410/textbook/1.Basics/compiler_op.html&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://stackoverflow.com/a/6264256&quot;&gt;StackOverflow&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&quot;&gt;The Cherno - Youtube&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gaurav Kumar Sharma</name><email>gaurav91297@gmail.com</email></author><category term="cpp" /><summary type="html">#30DaysOfCpp</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://learnwithme.club/" /><media:content medium="image" url="https://learnwithme.club/" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Create a simple Rest API without Django Rest Framework, just pure Django.</title><link href="https://learnwithme.club/article/creating-a-simple-rest-api-with-pure/" rel="alternate" type="text/html" title="Create a simple Rest API without Django Rest Framework, just pure Django." /><published>2021-03-23T03:00:00+05:30</published><updated>2021-03-23T03:00:00+05:30</updated><id>https://learnwithme.club/article/creating-a-simple-rest-api-with-pure</id><content type="html" xml:base="https://learnwithme.club/article/creating-a-simple-rest-api-with-pure/">&lt;h6 id=&quot;any-django-app-consists-of-three-major-things-a-model-a-url-path-a-view-in-here-we-will-create-a-simple-book-store-rest-api-a-rest-api-is-just-a-url-path-where-you-make-an-http-request-and-it-returns-data-in-response&quot;&gt;Any Django App Consists of three major things, a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Model&lt;/code&gt;, a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;URL Path&lt;/code&gt;, a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;View&lt;/code&gt;. In here we will create a simple Book store Rest API. A Rest API is just a URL path, where you make an HTTP request, and it returns Data in response.&lt;/h6&gt;
+
+&lt;h5 id=&quot;in-general-api-is-a-bridge-which-helps-two-remote-systems-to-communicate-with-each-other-in-a-limited-manner-defined-by-a-developer&quot;&gt;In general API is a bridge, which helps two remote systems to communicate with each other in a limited manner defined by a developer.&lt;/h5&gt;
+
+&lt;h2 id=&quot;the-introduction--&quot;&gt;The Introduction -&lt;/h2&gt;
+
+&lt;p&gt;I hope you are already aware of Django, as in this article, we are not going to cover “how to make a project in Django?”.&lt;/p&gt;
+
+&lt;p&gt;For this article, you need to create a django project with name &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;book_store&lt;/code&gt;, and a django app inside it, which name is &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;book&lt;/code&gt;, project structure looks something like this -&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;└── book_store
+    ├── book
+    │   ├── admin.py
+    │   ├── apps.py
+    │   ├── __init__.py
+    │   ├── migrations
+    │   │   └── __init__.py
+    │   ├── models.py
+    │   ├── tests.py
+    │   └── views.py
+    ├── book_store
+    │   ├── asgi.py
+    │   ├── __init__.py
+    │   ├── settings.py
+    │   ├── urls.py
+    │   └── wsgi.py
+    └── manage.py
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;When you are done with it, move to the next section, 
+Here we will start from Model, then URL &amp;amp; then View.&lt;/p&gt;
+
+&lt;h2 id=&quot;django-models--&quot;&gt;Django Models -&lt;/h2&gt;
+
+&lt;p&gt;As title of this section says, we are going to start from creating our first &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Book&lt;/code&gt; model.&lt;/p&gt;
+
+&lt;p&gt;Here is our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;book/models.py&lt;/code&gt; -&lt;/p&gt;
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.db&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;
+
+&lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Model&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;CharField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;max_length&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;100&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;published_on&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;models&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;DateField&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;As our model is done, we can now run migration commands, to convert it into a database table.&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python manage.py makemigrations
+&lt;span class=&quot;nv&quot;&gt;$ &lt;/span&gt;python manage.py migrate
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h6 id=&quot;now-we-are-going-to-create-our-view-function-and-url-path&quot;&gt;Now we are going to create our view function and url path.&lt;/h6&gt;
+
+&lt;h2 id=&quot;django-url-paths--&quot;&gt;Django URL paths -&lt;/h2&gt;
+
+&lt;p&gt;Title seems to be a little romantic, but control yourself, as we are going to kiss our urls file.&lt;/p&gt;
+
+&lt;p&gt;Open the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;book/urls.py&lt;/code&gt; file, and write these lines inside it.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.urls&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;app_name.views&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;books_api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;book_create_api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;urlpatterns&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'books/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;books_api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+  &lt;span class=&quot;n&quot;&gt;path&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'book/create/'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;book_create_api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Is this too much for you ? No worries, above &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urls.py&lt;/code&gt; is very simple, it has 2 &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;url&lt;/code&gt; paths, we will create their relative &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;view&lt;/code&gt; functions in the next section, until then have patience.&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;books/&lt;/code&gt; this &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;url&lt;/code&gt; path is to retrieve all the books saved in our database.&lt;/li&gt;
+  &lt;li&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;book/create/&lt;/code&gt; will take the required data from the client side, and create a &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;book&lt;/code&gt; entry in our database.&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;h2 id=&quot;django-views--&quot;&gt;Django Views -&lt;/h2&gt;
+
+&lt;p&gt;Let’s dig into our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;book/views.py&lt;/code&gt; file, and create relevant views for above defined &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;urls&lt;/code&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-python highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.http&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JsonResponse&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;app_name.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Book&lt;/span&gt;
+&lt;span class=&quot;kn&quot;&gt;from&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;django.forms.models&lt;/span&gt; &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model_to_dict&lt;/span&gt;
+
+&lt;span class=&quot;s&quot;&gt;'books/'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;books_api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+    &lt;span class=&quot;c1&quot;&gt;# Retrieve all the books
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;books_queryset&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;all&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Convert the queryset into python list
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;books_list&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nb&quot;&gt;list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;books_queryset&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;values&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;())&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Convert this dictionary into Json Response
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JsonResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;books_list&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                &lt;span class=&quot;n&quot;&gt;safe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;200&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;
+
+
+&lt;span class=&quot;s&quot;&gt;'book/create/'&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;book_create_api&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;):&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Create a book entry
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;book_obj&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;Book&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;objects&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;create&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'name'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;author&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'author'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+        &lt;span class=&quot;n&quot;&gt;published_on&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;request&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;POST&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;get&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;'published_on'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;),&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Convert it into a python dictionary
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;book_dict&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;model_to_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;book_obj&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;# Convert this dictionary into Json Response
+&lt;/span&gt;    &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;JsonResponse&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;
+                &lt;span class=&quot;n&quot;&gt;book_dict&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                &lt;span class=&quot;n&quot;&gt;safe&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;bp&quot;&gt;False&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; 
+                &lt;span class=&quot;n&quot;&gt;status&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;201&lt;/span&gt;
+            &lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;response&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So finally we have created a simple Rest API with pure django.&lt;/p&gt;
+
+&lt;h5 id=&quot;note-this-post-is-just-for-demonstration-that-we-can-build-an-api-wihout-relying-on-any-third-party-framework-just-pure-django&quot;&gt;Note: This post is just for demonstration that, we can build an API wihout relying on any third party framework, just pure django.&lt;/h5&gt;
+
+&lt;p&gt;Because you will get a lot of functionalities with frameworks like DRF, such as serialization, viewsets, access control, pagination, authentication mechanisms etc.&lt;/p&gt;
+
+&lt;h5 id=&quot;but-i-highly-recommend-you-to-use-drf-or-tastypie-for-creating-django-rest-apis-we-will-cover-it-some-other-day&quot;&gt;But I highly recommend you to use DRF or Tastypie for creating Django Rest APIs, We will cover it some other day.&lt;/h5&gt;
+
+&lt;p&gt;Hope you have learned something from this article, thanks for reading.&lt;/p&gt;
+
+&lt;h5 id=&quot;there-is-so-much-to-learn-in-the-upcoming-articles-stick-with-me-you-can-follow-me-on-linkedin-from-here-for-more-updates&quot;&gt;There is so much to learn in the upcoming articles, stick with me, you can follow me on &lt;a href=&quot;https://www.linkedin.com/in/hamhaingaurav/&quot;&gt;LinkedIn&lt;/a&gt; from &lt;a href=&quot;https://www.linkedin.com/in/hamhaingaurav/&quot;&gt;here&lt;/a&gt; for more updates.&lt;/h5&gt;
+
+&lt;h5 id=&quot;resources&quot;&gt;Resources&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://books.agiliq.com/projects/django-api-polls-tutorial/en/latest/apis-without-drf.html&quot;&gt;Building API Django&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gaurav Kumar Sharma</name><email>gaurav91297@gmail.com</email></author><category term="django" /><category term="django-rest-framework" /><summary type="html">Any Django App Consists of three major things, a Model, a URL Path, a View. In here we will create a simple Book store Rest API. A Rest API is just a URL path, where you make an HTTP request, and it returns Data in response.</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://learnwithme.club/" /><media:content medium="image" url="https://learnwithme.club/" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">1 - A beginner’s guide to get started with C++;</title><link href="https://learnwithme.club/article/getting-started-with-cpp/" rel="alternate" type="text/html" title="1 - A beginner’s guide to get started with C++;" /><published>2021-03-22T03:00:00+05:30</published><updated>2021-03-22T03:00:00+05:30</updated><id>https://learnwithme.club/article/getting-started-with-cpp</id><content type="html" xml:base="https://learnwithme.club/article/getting-started-with-cpp/">&lt;p&gt;&lt;a href=&quot;https://www.linkedin.com/feed/hashtag/?keywords=30daysofcpp&quot;&gt;30DaysOfCpp&lt;/a&gt;&lt;/p&gt;
+
+&lt;article&gt;&lt;kbd&gt;C++&lt;/kbd&gt; is one of the popular languages, I have learned it in my college 3 years back, and now i am going to learn it again like a beginner. I am a Python guy, it is going to be an exciting journey.&lt;/article&gt;
+
+&lt;h4 id=&quot;the-introduction&quot;&gt;The Introduction&lt;/h4&gt;
+
+&lt;p&gt;C++ is a general purpose, compiled programming language, It was designed by &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Bjarne Stroustrup&lt;/code&gt; in 1990s.&lt;/p&gt;
+
+&lt;p&gt;I know you are already aware about it, but we will get into more interesting stuff like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;linker&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;pointer&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;templates&lt;/code&gt; and much more in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;, as we move futher in this series of articles.&lt;/p&gt;
+
+&lt;p&gt;I am not going to bore you with repetitive stuff like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;variables&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;loops&lt;/code&gt; etc, of course we will study about them but not much, as every language has almost same kind of fundamentals.&lt;/p&gt;
+
+&lt;h4 id=&quot;why-c-in-2021&quot;&gt;Why C++ in 2021?&lt;/h4&gt;
+
+&lt;p&gt;This question has already came into your mind that why should we learn this old language today in 2021, specially when we have &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Python&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Javascript&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Ruby&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Go&lt;/code&gt; etc ?&lt;/p&gt;
+
+&lt;p&gt;The Answer is simple, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; is freaking fast, and gives you a super power as a programmer, on top of that, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; is still widely used in creating &lt;em&gt;Games&lt;/em&gt;, &lt;em&gt;Desktop Softwares&lt;/em&gt;, &lt;em&gt;Browsers&lt;/em&gt;, &lt;em&gt;Operating Systems&lt;/em&gt;, &lt;em&gt;Compilers&lt;/em&gt; and &lt;em&gt;Embeded Systems&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;So the answer is simple, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; makes you think like a real programmer, it gives you the freedom to handle almost everything in your program.&lt;/p&gt;
+
+&lt;h4 id=&quot;is-c-the-fastest-language-&quot;&gt;Is C++ the fastest language ?&lt;/h4&gt;
+
+&lt;p&gt;The answer is yes and no.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Yes&lt;/code&gt;, because &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; is a compiled languages and after compilation, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; program gets converted into the low level machine program, which makes it the fastest language.&lt;/p&gt;
+
+&lt;p&gt;&lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;No&lt;/code&gt;, because it depends on the programmer. In the case of other languages like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Java&lt;/code&gt;, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C#&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;Python&lt;/code&gt;, so much optimization has been done automatically by the compiler/interpreter on the fly, though in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;, if you write a bad program, it could even be slower than the equivalent of other language.&lt;/p&gt;
+
+&lt;h3 id=&quot;enough-talk-now-lets-jump-into-our-first-c-program&quot;&gt;Enough talk now, lets jump into our first C++ program.&lt;/h3&gt;
+
+&lt;p&gt;We will setup out programming environment in the next article, for now let’s have a look at the simplest &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;hello word&lt;/code&gt; &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; program.&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you are seeing this syntax for the first time, you might be already scratching you head and thinking what the heck is this ?&lt;/p&gt;
+
+&lt;p&gt;No worries, I am here, let’s break this program down into pieces -&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 1st Line&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Unlike other languages, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; does not come with input output services in the standard library like printing text in the console or taking user input.&lt;/p&gt;
+
+&lt;p&gt;For that, we have to include (import) the input output methods in our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; program.&lt;/p&gt;
+
+&lt;p&gt;First line is also called as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;header&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;preprocessor&lt;/code&gt;, because the moment your &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; program compilation starts, first thing your compiler does, is, include necessary header files, and to do that, it needed the name of header files like &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;iostream&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s jump into the next line -&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// 2nd Line&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{...}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;This is our &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; function, also knows as entry point for the compiler of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;We can call it an entry point, because no matter how long your program is, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; always going to start the execution from &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; function, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; is the official start of the “user specified” part of the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; program.&lt;/p&gt;
+
+&lt;p&gt;What is the meaning of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;int&lt;/code&gt; on the left of &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; ?&lt;/p&gt;
+
+&lt;p&gt;We know that in programming, every function returns something, in this case, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;int&lt;/code&gt; denotes that the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; function will always return an &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;integer&lt;/code&gt;, although here it does not matter, because we are not returning anything, &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; is a special case in &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let’s have a look at inside the &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt; function -&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;If you take a look at the first line inside &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;main&lt;/code&gt;, it seems like pretty confusing, but it is not.&lt;/p&gt;
+
+&lt;p&gt;This &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;std::cout&lt;/code&gt; shows that we are using &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;standard console output&lt;/code&gt; to print the text on console.&lt;/p&gt;
+
+&lt;p&gt;This &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;&amp;lt;&amp;lt;&lt;/code&gt; is an operator, also knows as &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;stream out&lt;/code&gt; or &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;overloaded&lt;/code&gt; operator. Operators are nothing, just a function. It simply &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;passes&lt;/code&gt; the string (text) into &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;cout&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can consider this whole line as given below -&lt;/p&gt;
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+
+&lt;span class=&quot;c1&quot;&gt;// can be understood as&lt;/span&gt;
+
+&lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;print&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;);&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;Let’s have a look at the whole program again -&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c1&quot;&gt;// Header or Preprocessor&lt;/span&gt;
+&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;iostream&amp;gt;
+&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;// Entry point or main function&lt;/span&gt;
+&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+
+    &lt;span class=&quot;c1&quot;&gt;// Standard console output and next line&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello World&quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;p&gt;So this is how we have understood our first &lt;code class=&quot;language-plaintext highlighter-rouge&quot;&gt;C++&lt;/code&gt; program.&lt;/p&gt;
+
+&lt;h4 id=&quot;conclusion--&quot;&gt;Conclusion -&lt;/h4&gt;
+
+&lt;p&gt;I can totally understand your curiosity, we will setup our system environment to write and execute the program locally in next article.&lt;/p&gt;
+
+&lt;h5 id=&quot;there-is-so-much-to-learn-in-the-upcoming-articles-stick-with-me-you-can-follow-me-on-linkedin-from-here-for-more-updates&quot;&gt;There is so much to learn in the upcoming articles, stick with me, you can follow me on &lt;a href=&quot;https://www.linkedin.com/in/hamhaingaurav/&quot;&gt;LinkedIn&lt;/a&gt; from &lt;a href=&quot;https://www.linkedin.com/in/hamhaingaurav/&quot;&gt;here&lt;/a&gt; for more updates.&lt;/h5&gt;
+
+&lt;h5 id=&quot;until-then-you-can-watch-some-intersting-c-videos-and-read-a-great-article-from-the-links-given-below-enjoy-c&quot;&gt;Until then you can watch some intersting C++ videos and read a great article from the links given below, enjoy C++.&lt;/h5&gt;
+
+&lt;h5 id=&quot;resources&quot;&gt;Resources&lt;/h5&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.youtube.com/playlist?list=PLlrATfBNZ98dudnM48yfGUldqGD0S4FFb&quot;&gt;The Cherno - Youtube&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.freecodecamp.org/news/the-c-plus-plus-programming-language/&quot;&gt;The C++ Programming Language - Freecodecamp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Gaurav Kumar Sharma</name><email>gaurav91297@gmail.com</email></author><category term="cpp" /><summary type="html">30DaysOfCpp</summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://learnwithme.club/" /><media:content medium="image" url="https://learnwithme.club/" xmlns:media="http://search.yahoo.com/mrss/" /></entry></feed>
